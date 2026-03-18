@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoGO | Student-Only Ride Matching Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="orb orb-one" aria-hidden="true"></div>
+  <div class="orb orb-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#hero">
+      <span class="brand-mark">Co</span>
+      <span class="brand-text">CoGO</span>
+    </a>
+    <nav class="nav">
+      <a href="#how-it-works">How it works</a>
+      <a href="#demo">Live demo</a>
+      <a href="#safety">Safety</a>
+    </nav>
+    <a class="nav-cta" href="#demo">Try the demo</a>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Student-exclusive ride coordination in Los Angeles</p>
+        <h1>Match routes, split costs, and ride with verified students only.</h1>
+        <p class="hero-text">
+          CoGO is a student-only route-matching platform built for campus communities. Students join with a valid
+          <code>.edu</code> email, enter where they are going, and get matched through two flows:
+          <strong>Driver Match</strong> for students offering seats and <strong>Rider Match</strong> for students
+          coordinating shared Uber or Lyft trips.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#demo">Launch interactive demo</a>
+          <a class="secondary-button" href="#how-it-works">Explore the system</a>
+        </div>
+        <div class="hero-metrics">
+          <article>
+            <strong>100%</strong>
+            <span>verified student access</span>
+          </article>
+          <article>
+            <strong>2</strong>
+            <span>matching modes</span>
+          </article>
+          <article>
+            <strong>LA</strong>
+            <span>launch market focus</span>
+          </article>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <p class="panel-label">Live product snapshot</p>
+        <div class="mini-map">
+          <div class="mini-route route-a"></div>
+          <div class="mini-route route-b"></div>
+          <div class="mini-node node-a">USC</div>
+          <div class="mini-node node-b">Santa Monica</div>
+          <div class="mini-node node-c">Westwood</div>
+        </div>
+        <div class="mini-feed">
+          <div class="mini-item">
+            <span class="tag driver">Driver Match</span>
+            <p>Jason has 2 seats from USC to Santa Monica at 6:10 PM.</p>
+          </div>
+          <div class="mini-item">
+            <span class="tag rider">Rider Match</span>
+            <p>3 students are splitting a Lyft from UCLA to Koreatown.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="feature-section" id="how-it-works">
+      <div class="section-heading">
+        <p class="eyebrow">Why CoGO works</p>
+        <h2>A trust-first transportation coordination platform for students.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-number">01</span>
+          <h3>Student verification</h3>
+          <p>
+            Registration is limited to valid <code>.edu</code> email addresses, creating a closed campus-oriented
+            network that improves safety, trust, and accountability.
+          </p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">02</span>
+          <h3>Driver Match</h3>
+          <p>
+            Students with cars can publish open seats, share transportation costs, and coordinate pickups with peers
+            traveling in the same direction.
+          </p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">03</span>
+          <h3>Rider Match</h3>
+          <p>
+            Students without cars can form shared Uber or Lyft groups, reduce individual fare costs, and align on
+            time and meeting points before booking.
+          </p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">04</span>
+          <h3>Structured compatibility filters</h3>
+          <p>
+            Users can match by route, departure time, meeting location, and optional gender preference to improve fit
+            and simplify coordination.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="demo-section" id="demo">
+      <div class="section-heading">
+        <p class="eyebrow">Interactive demo</p>
+        <h2>Walk through the full CoGO journey.</h2>
+        <p class="section-copy">
+          This demo simulates onboarding, matching, and messaging so you can present the complete concept without a
+          backend.
+        </p>
+      </div>
+
+      <div class="demo-layout">
+        <section class="demo-panel form-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-label">Step-by-step flow</p>
+              <h3>Create a student trip request</h3>
+            </div>
+            <div class="step-indicator" id="stepIndicator">Step 1 of 3</div>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <span class="progress-fill" id="progressFill"></span>
+          </div>
+
+          <div class="demo-tabs" role="tablist" aria-label="Match type">
+            <button class="demo-tab active" type="button" data-mode="driver">Driver Match</button>
+            <button class="demo-tab" type="button" data-mode="rider">Rider Match</button>
+          </div>
+
+          <form id="matchForm" novalidate>
+            <div class="form-step active" data-step="1">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" placeholder="Jordan Lee" required>
+                <p class="error-message" id="nameError"></p>
+              </div>
+
+              <div class="field">
+                <label for="email">Student email</label>
+                <input id="email" name="email" type="email" placeholder="jordan@usc.edu" required>
+                <p class="hint-text">Only verified <code>.edu</code> emails can continue.</p>
+                <p class="error-message" id="emailError"></p>
+              </div>
+
+              <div class="verification-card" id="verificationCard">
+                <div>
+                  <p class="verification-title">Campus verification status</p>
+                  <p class="verification-copy" id="verificationText">
+                    Enter your school email to unlock student-only matching.
+                  </p>
+                </div>
+                <span class="verification-badge pending" id="verificationBadge">Pending</span>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <div class="field">
+                <label for="origin">Departure location</label>
+                <input id="origin" name="origin" type="text" placeholder="USC Village" required>
+                <p class="error-message" id="originError"></p>
+              </div>
+
+              <div class="field">
+                <label for="destination">Destination</label>
+                <input id="destination" name="destination" type="text" placeholder="Santa Monica" required>
+                <p class="error-message" id="destinationError"></p>
+              </div>
+
+              <div class="field-grid">
+                <div class="field">
+                  <label for="time">Preferred departure time</label>
+                  <input id="time" name="time" type="time" required>
+                  <p class="error-message" id="timeError"></p>
+                </div>
+                <div class="field">
+                  <label for="meetingPoint">Meeting point</label>
+                  <input id="meetingPoint" name="meetingPoint" type="text" placeholder="Leavey Library entrance" required>
+                  <p class="error-message" id="meetingPointError"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+              <div class="field-grid">
+                <div class="field">
+                  <label for="seats">Available seats / group size</label>
+                  <select id="seats" name="seats">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="genderPreference">Gender preference</label>
+                  <select id="genderPreference" name="genderPreference">
+                    <option value="No preference" selected>No preference</option>
+                    <option value="Women only">Women only</option>
+                    <option value="Men only">Men only</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="notes">Extra notes</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Example: Can wait 10 minutes, one carry-on bag, prefers front gate pickup."></textarea>
+              </div>
+
+              <div class="mode-summary" id="modeSummary">
+                Driver Match selected: your request will show available seats to students heading the same way.
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="ghost-button" id="backButton" type="button" disabled>Back</button>
+              <button class="primary-button" id="nextButton" type="button">Continue</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="demo-panel output-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-label">Demo output</p>
+              <h3>Matches and conversation</h3>
+            </div>
+            <span class="live-dot">Live</span>
+          </div>
+
+          <div class="summary-card" id="summaryCard">
+            <div>
+              <p class="summary-title">No active request yet</p>
+              <p class="summary-copy">
+                Complete the demo form to generate route matches, see compatibility scores, and open a sample in-app
+                conversation.
+              </p>
+            </div>
+          </div>
+
+          <div class="results-block">
+            <div class="results-header">
+              <h4>Matched students</h4>
+              <button class="ghost-button compact" id="simulateButton" type="button">Use sample trip</button>
+            </div>
+            <div class="match-list" id="matchList">
+              <p class="empty-state">Your suggested drivers or riders will appear here.</p>
+            </div>
+          </div>
+
+          <div class="message-panel">
+            <div class="message-header">
+              <div>
+                <p class="panel-label">Integrated messaging</p>
+                <h4 id="chatTitle">Open a match to preview the chat</h4>
+              </div>
+            </div>
+            <div class="message-thread" id="messageThread">
+              <p class="empty-state">Direct messaging lets matched students confirm timing, meeting points, and cost split details.</p>
+            </div>
+            <form class="message-compose" id="messageForm">
+              <input id="messageInput" type="text" placeholder="Type a message to your selected match..." disabled>
+              <button class="primary-button compact" type="submit" disabled id="sendButton">Send</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="safety-section" id="safety">
+      <div class="section-heading">
+        <p class="eyebrow">Safety and trust</p>
+        <h2>Built around institutional identity, not anonymous ride requests.</h2>
+      </div>
+
+      <div class="safety-grid">
+        <article class="safety-card">
+          <h3>Closed student community</h3>
+          <p>
+            CoGO limits participation to verified university affiliates, creating a stronger sense of security than
+            open consumer marketplaces.
+          </p>
+        </article>
+        <article class="safety-card">
+          <h3>Compatibility-driven matching</h3>
+          <p>
+            Route alignment, timing, meeting point, and optional gender preferences work together to reduce friction
+            before students connect.
+          </p>
+        </article>
+        <article class="safety-card">
+          <h3>Direct coordination</h3>
+          <p>
+            In-app messaging gives students a clear channel to finalize pickup details and expectations before the trip
+            happens.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>CoGO demo concept for student-exclusive transportation matching in Los Angeles.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
