@@ -93,7 +93,6 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-weight: 700;
 }
 
 .brand-mark {
@@ -244,7 +243,10 @@ h1 {
 .mini-item p,
 .footer p,
 .match-card p,
-.empty-state {
+.empty-state,
+.chat-meta,
+.verification-mini-status,
+.trust-item {
   color: var(--muted);
   line-height: 1.75;
 }
@@ -526,9 +528,88 @@ form,
 .match-list,
 .message-thread,
 .field,
-.field-grid {
+.field-grid,
+.verification-actions,
+.trust-checks {
   display: grid;
   gap: 18px;
+}
+
+.verification-workflow {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.verification-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.verification-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(22, 33, 47, 0.08);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.verification-grid {
+  align-items: end;
+}
+
+.verification-actions {
+  grid-template-rows: auto 1fr;
+}
+
+.verification-mini-status,
+.chat-meta {
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.trust-checks {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trust-item {
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.48);
+  font-size: 0.92rem;
+}
+
+.trust-item.pending::before,
+.trust-item.complete::before,
+.trust-item.blocked::before {
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.trust-item.pending::before {
+  content: "○";
+  color: var(--gold);
+}
+
+.trust-item.complete::before {
+  content: "●";
+  color: var(--teal);
+}
+
+.trust-item.blocked::before {
+  content: "●";
+  color: var(--accent-deep);
 }
 
 .form-step {
@@ -644,6 +725,11 @@ textarea.invalid {
   color: var(--accent-deep);
 }
 
+.verification-badge.checking {
+  background: rgba(29, 124, 116, 0.12);
+  color: var(--teal);
+}
+
 .mode-summary {
   padding: 16px 18px;
 }
@@ -672,6 +758,26 @@ textarea.invalid {
 .match-card h5 {
   margin: 8px 0 6px;
   font-size: 1.12rem;
+}
+
+.match-rating-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.rating-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .match-card p {
@@ -767,7 +873,8 @@ textarea.invalid {
 
   .hero-metrics,
   .field-grid,
-  .message-compose {
+  .message-compose,
+  .trust-checks {
     grid-template-columns: 1fr;
   }
 
