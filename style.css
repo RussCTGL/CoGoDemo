@@ -142,11 +142,10 @@ code {
 }
 
 .brand-logo-image {
-  width: 74px;
+  width: 100px;
   height: 74px;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 14px 32px rgba(22, 33, 47, 0.14);
 }
 
 .brand-logo-image.small {
