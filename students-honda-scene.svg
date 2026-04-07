@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Three students in a Honda car</title>
+  <desc id="desc">An illustration-style hero visual showing three students taking a Honda-style car ride together.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7e5cf"/>
+      <stop offset="100%" stop-color="#d8efe9"/>
+    </linearGradient>
+    <linearGradient id="car" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7ac1d6"/>
+      <stop offset="100%" stop-color="#2f7085"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.82"/>
+      <stop offset="100%" stop-color="#d7f0f8" stop-opacity="0.75"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="540" rx="40" fill="url(#sky)"/>
+  <circle cx="150" cy="110" r="54" fill="#f9c56f" opacity="0.9"/>
+  <path d="M0 430c160-78 260-72 375-20 120 54 220 53 341 6 73-28 146-39 244-18v142H0z" fill="#dfd9c9"/>
+  <path d="M0 462c174-38 286-31 398 14 117 47 233 54 363 13 70-22 129-26 199-17v68H0z" fill="#c4d6ce"/>
+
+  <g transform="translate(130 168)">
+    <ellipse cx="210" cy="190" rx="170" ry="23" fill="#315564" opacity="0.18"/>
+    <ellipse cx="570" cy="190" rx="170" ry="23" fill="#315564" opacity="0.18"/>
+    <path d="M164 42c16-36 51-59 90-59h213c37 0 72 17 96 46l64 78c7 8 16 14 27 17l45 12c22 6 37 26 37 49v56H57v-51c0-28 20-52 48-57l39-8c11-2 21-9 28-17z" fill="url(#car)"/>
+    <path d="M223 21h155c23 0 44 10 58 28l33 41H182l21-39c9-18 28-30 50-30z" fill="url(#glass)"/>
+    <path d="M414 21h86c26 0 50 12 65 33l25 36H465z" fill="url(#glass)"/>
+    <rect x="67" y="132" width="694" height="64" rx="20" fill="#37697a"/>
+    <rect x="286" y="92" width="16" height="56" rx="8" fill="#4f8598"/>
+    <rect x="458" y="92" width="16" height="56" rx="8" fill="#4f8598"/>
+    <circle cx="194" cy="195" r="56" fill="#1e2f36"/>
+    <circle cx="194" cy="195" r="30" fill="#d9dde0"/>
+    <circle cx="579" cy="195" r="56" fill="#1e2f36"/>
+    <circle cx="579" cy="195" r="30" fill="#d9dde0"/>
+    <rect x="109" y="115" width="70" height="18" rx="9" fill="#f6d37b"/>
+    <rect x="630" y="115" width="70" height="18" rx="9" fill="#f6d37b"/>
+    <rect x="700" y="145" width="45" height="15" rx="7.5" fill="#f4f1e9"/>
+
+    <g transform="translate(240 28)">
+      <circle cx="50" cy="46" r="25" fill="#8a593d"/>
+      <rect x="26" y="73" width="48" height="37" rx="15" fill="#ffd8b4"/>
+      <circle cx="50" cy="48" r="19" fill="#ffd8b4"/>
+      <path d="M33 44c5-17 29-28 41-4v13H31z" fill="#4d3427"/>
+      <path d="M19 102c8-12 20-17 31-17 12 0 22 5 31 17v17H19z" fill="#e97e5b"/>
+    </g>
+
+    <g transform="translate(374 12)">
+      <circle cx="54" cy="50" r="26" fill="#573427"/>
+      <rect x="30" y="78" width="50" height="39" rx="15" fill="#f2c9a4"/>
+      <circle cx="54" cy="52" r="20" fill="#f2c9a4"/>
+      <path d="M34 41c7-16 27-26 40-7 5 7 5 17 5 23H34z" fill="#2f2321"/>
+      <path d="M20 107c9-13 21-18 34-18s25 5 34 18v18H20z" fill="#78b6a1"/>
+    </g>
+
+    <g transform="translate(497 26)">
+      <circle cx="50" cy="47" r="25" fill="#6c442d"/>
+      <rect x="28" y="74" width="46" height="36" rx="15" fill="#f3c9ae"/>
+      <circle cx="50" cy="49" r="19" fill="#f3c9ae"/>
+      <path d="M31 43c4-15 24-23 37-11 6 5 8 13 8 19H31z" fill="#2f2321"/>
+      <path d="M18 102c8-12 19-16 32-16 11 0 21 4 31 16v18H18z" fill="#6b8fd6"/>
+    </g>
+  </g>
+
+  <text x="72" y="474" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#17303d">Three students sharing one Honda ride with CoGO</text>
+</svg>

@@ -61,6 +61,9 @@ const demoMatches = {
       driverRating: 4.9,
       riderRating: 4.8,
       detail: "Has 2 open seats, prefers cash or Venmo split, okay with one backpack.",
+      cogoPrice: "$7 / rider",
+      uberPrice: "$24 solo UberX",
+      lyftPrice: "$22 solo Lyft",
       car: "2021 Honda Civic",
       color: "Blue",
       plate: "CA 8LQX221",
@@ -84,6 +87,9 @@ const demoMatches = {
       driverRating: 4.8,
       riderRating: 4.9,
       detail: "1 seat left, prefers women-only matches, can wait up to 8 minutes.",
+      cogoPrice: "$8 / rider",
+      uberPrice: "$26 solo UberX",
+      lyftPrice: "$23 solo Lyft",
       car: "2020 Toyota RAV4",
       color: "Silver",
       plate: "CA 6PHT914",
@@ -107,6 +113,9 @@ const demoMatches = {
       driverRating: 4.7,
       riderRating: 4.6,
       detail: "2 seats available, prefers students with light bags, returning same night.",
+      cogoPrice: "$6 / rider",
+      uberPrice: "$21 solo UberX",
+      lyftPrice: "$20 solo Lyft",
       car: "2019 Tesla Model 3",
       color: "White",
       plate: "CA 9KTR602",
@@ -132,6 +141,9 @@ const demoMatches = {
       driverRating: 4.8,
       riderRating: 5.0,
       detail: "Already has 1 rider confirmed and is splitting a Lyft 3 ways.",
+      cogoPrice: "$9 shared CoGO",
+      uberPrice: "$26 solo UberX",
+      lyftPrice: "$24 solo Lyft",
       photo: createAvatar("Nina Alvarez", "#ffd29d", "#e27855"),
       messages: [
         "Hey, we are planning to book a Lyft from Westwood around 8:00 PM.",
@@ -151,6 +163,9 @@ const demoMatches = {
       driverRating: 4.9,
       riderRating: 4.8,
       detail: "Looking for 2 students to split an Uber to LAX, one carry-on each preferred.",
+      cogoPrice: "$14 shared CoGO",
+      uberPrice: "$37 solo UberX",
+      lyftPrice: "$34 solo Lyft",
       photo: createAvatar("Olivia Chen", "#b7e6e1", "#4d968e"),
       messages: [
         "I am ordering an Uber to LAX around 4:45 PM.",
@@ -170,6 +185,9 @@ const demoMatches = {
       driverRating: 4.7,
       riderRating: 4.7,
       detail: "Flexible within 15 minutes, okay with UberX or Lyft standard.",
+      cogoPrice: "$8 shared CoGO",
+      uberPrice: "$19 solo UberX",
+      lyftPrice: "$18 solo Lyft",
       photo: createAvatar("Daniel Park", "#ffcfdb", "#c25f78"),
       messages: [
         "I am coordinating a shared rideshare to Santa Monica tonight.",
@@ -357,6 +375,26 @@ function renderMatchCard(match) {
       `
     : "";
 
+  const priceSection = `
+    <div class="price-comparison">
+      <div class="price-comparison-title">Price comparison</div>
+      <div class="price-grid">
+        <div class="price-item">
+          <span class="price-label">CoGO</span>
+          <span class="price-value accent">${match.cogoPrice}</span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">Uber</span>
+          <span class="price-value">${match.uberPrice}</span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">Lyft</span>
+          <span class="price-value">${match.lyftPrice}</span>
+        </div>
+      </div>
+    </div>
+  `;
+
   return `
     <article class="match-card ${match.id === activeMatchId ? "active" : ""}" data-match-id="${match.id}">
       <div class="match-card-header">
@@ -378,6 +416,7 @@ function renderMatchCard(match) {
         <p>${match.time} · ${match.meetingPoint}</p>
         <p>${match.detail}</p>
       </div>
+      ${priceSection}
       ${carSection}
     </article>
   `;
@@ -409,8 +448,8 @@ function openMatch(matchId) {
 
   chatTitle.textContent = `Chat with ${match.name}`;
   chatMeta.innerHTML = match.role === "driver"
-    ? `${match.university} verified student. Driver rating ${match.driverRating.toFixed(1)}/5, rider rating ${match.riderRating.toFixed(1)}/5, compatibility ${match.score}%. Driving a <strong>${match.color} ${match.car}</strong> with plate <strong>${match.plate}</strong>.`
-    : `${match.university} verified student. Driver rating ${match.driverRating.toFixed(1)}/5, rider rating ${match.riderRating.toFixed(1)}/5, compatibility ${match.score}%. Coordinating a shared rideshare group.`;
+    ? `${match.university} verified student. Driver rating ${match.driverRating.toFixed(1)}/5, rider rating ${match.riderRating.toFixed(1)}/5, compatibility ${match.score}%. Driving a <strong>${match.color} ${match.car}</strong> with plate <strong>${match.plate}</strong>. CoGO estimate <strong>${match.cogoPrice}</strong>, compared with Uber at <strong>${match.uberPrice}</strong> and Lyft at <strong>${match.lyftPrice}</strong>.`
+    : `${match.university} verified student. Driver rating ${match.driverRating.toFixed(1)}/5, rider rating ${match.riderRating.toFixed(1)}/5, compatibility ${match.score}%. Coordinating a shared rideshare group. CoGO estimate <strong>${match.cogoPrice}</strong>, compared with Uber at <strong>${match.uberPrice}</strong> and Lyft at <strong>${match.lyftPrice}</strong>.`;
   messageInput.disabled = false;
   sendButton.disabled = false;
 
